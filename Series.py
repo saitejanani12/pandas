@@ -1,4 +1,8 @@
+# import pandas as pd 
+# #python Str Data into pandas.Series
+# s = pd.Series('sai')
+# print(s)
 import pandas as pd 
-#python Str Data into pandas.Series
-s = pd.Series('sai')
+ #python Int Data into pandas.Series
+s = pd.Series(10)
 print(s)

@@ -1,18 +1,29 @@
-# import pandas as pd 
-# #python Str Data into pandas.Series
-# s = pd.Series('sai')
-# print(s)
-# import pandas as pd 
-#  #python Int Data into pandas.Series
-# s = pd.Series(10)
-# print(s)
-# import pandas as pd 
-#  #python Flot Data into pandas.Series
-# s = pd.Series(10.0)
-# print(s)
 import pandas as pd
-import numpy as np
-lst = [int(x) for x in range(1,11)]
-p = np.array(lst)
-data = pd.Series(p,index=['A','B','C','D','E','F','G','H','I','J'])
-print(data)
+
+data = pd.read_csv(r'E:\\pdf\\student.csv')
+
+data[::]
+
+#DataFiltering by using Normal
+
+data[data['maths']<75]
+
+#Data Filtering By using Query 
+data.query('telugu>65')
+
+# Data Filtering By using isin
+data[data['name'].isin(['Ramesh'])]
+
+# Data Filtering By using loc complex condition
+data[(data['name']=='Ramesh')&(data['maths']>50)]
+
+# Data Filtering By using loc isin
+data[data.isin({'name':['Ramesh',"Biswa"],'maths':[98]})]
+
+# Data filtering by using function
+data[data['htno'].apply(lambda x:x%2==0)]
+
+def filtering(name):
+    return name == 'Ramesh'
+data[data['name'].apply(filtering)]
+
